@@ -1,2 +1,92 @@
-<h1> Aqui se realizara el proyecto</h1>
-<h2> Aqui se realizara el proyecto</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .scaleUp {
+            animation: scaleUp 0.5s ease-out;
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .background {
+            background: linear-gradient(135deg, #6e7dff, #1c2b64);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="background">
+    <div class="flex items-center justify-center w-full h-full">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96 max-w-md fadeIn">
+            <div class="flex justify-center mb-6">
+                <img src="https://via.placeholder.com/150" alt="Logo Empresa" class="logo">
+            </div>
+
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
+                    <input type="password" id="password" name="password" required class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300 scaleUp">Iniciar sesión</button>
+                </div>
+            </form>
+
+            <div id="errorMessage" class="text-red-500 mt-3 hidden text-center">Correo o contraseña incorrectos.</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector('.fadeIn').classList.add('fadeIn');
+        });
+
+        const form = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email === "usuario@empresa.com" && password === "123456") {
+                alert("Login exitoso");
+            } else {
+                errorMessage.classList.remove('hidden');
+                errorMessage.classList.add('fadeIn');
+            }
+        });
+    </script>
+</body>
+</html>
