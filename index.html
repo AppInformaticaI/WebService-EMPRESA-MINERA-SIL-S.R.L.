@@ -37,11 +37,28 @@
             max-width: 150px;
             margin-bottom: 20px;
         }
+
+        .fadeInUp {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hoverScale {
+            transition: transform 0.3s;
+        }
+
+        .hoverScale:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="background">
     <div class="flex items-center justify-center w-full h-full">
-        <div class="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96 max-w-md fadeIn">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96 max-w-md fadeInUp">
             <div class="flex justify-center mb-6">
                 <img src="/Imagen1.jpg" alt="Logo Empresa" class="logo">
             </div>
@@ -57,6 +74,10 @@
                     <input type="password" id="password" name="password" required class="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
                 </div>
 
+                <div class="text-sm text-blue-600 hover:underline hoverScale">
+                    <a href="#" id="forgotPassword" class="hover:text-blue-800 transition duration-200">¿Te olvidaste la contraseña?</a>
+                </div>
+
                 <div>
                     <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300 scaleUp">Iniciar sesión</button>
                 </div>
@@ -68,7 +89,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector('.fadeIn').classList.add('fadeIn');
+            document.querySelector('.fadeInUp').classList.add('fadeInUp');
         });
 
         const form = document.getElementById('loginForm');
@@ -86,6 +107,10 @@
                 errorMessage.classList.remove('hidden');
                 errorMessage.classList.add('fadeIn');
             }
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', function() {
+            alert('Te hemos enviado un enlace para restablecer tu contraseña.');
         });
     </script>
 </body>
