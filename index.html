@@ -59,9 +59,8 @@
 <body class="background">
     <div class="flex items-center justify-center w-full h-full">
         <div class="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96 max-w-md fadeInUp">
-                     <div class="flex justify-center mb-6">
-               <img src="Imagen1.jpg" alt="Logo Empresa" class="logo">
-
+            <div class="flex justify-center mb-6">
+                <img src="Imagen1.jpg" alt="Logo Empresa" class="logo">
             </div>
 
             <form id="loginForm" class="space-y-6">
@@ -102,9 +101,18 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
+            // Verificación de correo y contraseña
             if (email === "usuario@empresa.com" && password === "123456") {
-                alert("Login exitoso");
+                // Redirige a admin.html
+                window.location.href = "admin.html";
+            } else if (email === "porteria@gmail.com" && password === "123abc") {
+                // Redirige a porteria.html
+                window.location.href = "porteria.html";
+            } else if (email === "secretaria@gmail.com" && password === "123") {
+                // Redirige a secretaria.html
+                window.location.href = "secretaria.html";
             } else {
+                // Muestra el mensaje de error
                 errorMessage.classList.remove('hidden');
                 errorMessage.classList.add('fadeIn');
             }
