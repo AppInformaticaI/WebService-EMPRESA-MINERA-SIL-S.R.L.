@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Redirige al usuario al iniciar sesión, para eliminar la sesión de manera segura
+        window.onload = function() {
+            setTimeout(function() {
+                // Elimina la sesión
+                window.location.href = "login.html"; // Redirige a la página de login
+            }, 2000); // Espera 2 segundos antes de redirigir
+        }
+    </script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96 max-w-md text-center">
+        <h2 class="text-2xl font-bold mb-4">Cerrando sesión...</h2>
+        <p class="text-gray-600 mb-6">Estás siendo desconectado de la plataforma. Redirigiendo al inicio de sesión...</p>
+        <div class="loader mb-4">
+            <svg class="animate-spin h-8 w-8 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8v3l4-4-4-4v3a12 12 0 0 0 0 16v3l4-4-4-4v3a8 8 0 0 1-8-8z"></path>
+            </svg>
+        </div>
+        <p class="text-gray-500 text-sm">Si no eres redirigido automáticamente, <a href="login.html" class="text-blue-600 hover:underline">haz clic aquí</a>.</p>
+    </div>
+</body>
+</html>
