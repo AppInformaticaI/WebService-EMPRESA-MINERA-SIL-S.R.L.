@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .sidebar { width: 250px; }
+        .sidebar a { padding: 10px 15px; display: block; color: white; }
+        .sidebar a:hover { background-color: #4C51BF; }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <!-- Barra lateral -->
+    <div class="sidebar bg-blue-600 fixed h-full">
+        <div class="text-white p-5 text-xl font-semibold">Administrador</div>
+        <a href="admin.html">Dashboard</a>
+        <a href="gestion_usuarios.html">Gestionar Usuarios</a>
+        <a href="porteros.html">Ver Porteros</a>
+        <a href="secretarias.html">Ver Secretarias</a>
+        <a href="estadisticas.html">Estadísticas</a>
+        <a href="login.html">Cerrar sesión</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="ml-64 p-6">
+        <h2 class="text-3xl font-bold mb-4">Bienvenido, Admin</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-semibold">Gestión de Usuarios</h3>
+            
+            <!-- Filtro por Fechas -->
+            <form action="admin.html" method="GET" class="mb-4">
+                <label for="fecha_inicio" class="mr-2">Desde:</label>
+                <input type="date" name="fecha_inicio" class="p-2 border border-gray-300 rounded-md">
+                
+                <label for="fecha_fin" class="mr-2">Hasta:</label>
+                <input type="date" name="fecha_fin" class="p-2 border border-gray-300 rounded-md">
+                
+                <button type="submit" class="bg-blue-600 text-white p-2 rounded-md">Filtrar</button>
+            </form>
+
+            <!-- Tabla de usuarios -->
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="p-3 border-b">ID</th>
+                        <th class="p-3 border-b">Nombre</th>
+                        <th class="p-3 border-b">Correo</th>
+                        <th class="p-3 border-b">Rol</th>
+                        <th class="p-3 border-b">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos simulados -->
+                    <tr>
+                        <td class="p-3 border-b">1</td>
+                        <td class="p-3 border-b">Juan Pérez</td>
+                        <td class="p-3 border-b">juanperez@empresa.com</td>
+                        <td class="p-3 border-b">Admin</td>
+                        <td class="p-3 border-b">
+                            <a href="editar_usuario.html?id=1" class="text-blue-600">Editar</a>
+                            <a href="eliminar_usuario.html?id=1" class="text-red-600 ml-4">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 border-b">2</td>
+                        <td class="p-3 border-b">María López</td>
+                        <td class="p-3 border-b">marialopez@empresa.com</td>
+                        <td class="p-3 border-b">Usuario</td>
+                        <td class="p-3 border-b">
+                            <a href="editar_usuario.html?id=2" class="text-blue-600">Editar</a>
+                            <a href="eliminar_usuario.html?id=2" class="text-red-600 ml-4">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 border-b">3</td>
+                        <td class="p-3 border-b">Carlos Ruiz</td>
+                        <td class="p-3 border-b">carlosruiz@empresa.com</td>
+                        <td class="p-3 border-b">Portero</td>
+                        <td class="p-3 border-b">
+                            <a href="editar_usuario.html?id=3" class="text-blue-600">Editar</a>
+                            <a href="eliminar_usuario.html?id=3" class="text-red-600 ml-4">Eliminar</a>
+                        </td>
+                    </tr>
+                    <!-- Más usuarios simulados -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
